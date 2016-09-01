@@ -18,11 +18,21 @@ const SearchColumn = React.createClass({
     LocaleApiUtil.searchLocales(name, this.setResults);
   },
   setResults(results){
-    console.log(results);
     this.setState({results: results});
   },
   render () {
-    const deleteButton = <button className='search-button' onClick={this.props.delete}>Delete Column</button>;
+    const deleteButton = (
+      <button
+        className='search-button delete'
+        onClick={this.props.delete}>
+        Delete Column
+      </button>);
+    const header = (
+      <div className='column-header'>
+        <div className='field locale'>Locale</div>
+        <div className='field value'>Value</div>
+      </div>
+    );
     const resultItems = this.state.results.map((result)=>{
       return (
         <SearchListItem
@@ -32,11 +42,14 @@ const SearchColumn = React.createClass({
       );
     });
     return (
-      <div>
+      <div className='column'>
         <SearchSelector handleSelectorChange={this.handleSelectorChange} />
-        <ul className='result-list'>
-          {resultItems}
-        </ul>
+        <div className='table-wrapper'>
+          {this.state.results.length > 0 ? header : ""}
+          <ul className='result-list'>
+            {resultItems}
+          </ul>
+        </div>
         {deleteButton}
       </div>
     );

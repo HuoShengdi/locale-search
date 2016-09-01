@@ -12,7 +12,7 @@ const SearchSelector = React.createClass({
     return (
       <div className="selector-wrapper">
         <select value={this.state.selected} onChange={this.handleChange}>
-          <option></option>
+          <option>--Select Property--</option>
           <option value={"quotationStart"}>{"Open Quote"}</option>
           <option value={"quotationEnd"}>{"Close Quote"}</option>
           <option value={"alternateQuotationStart"}>{"Alt. Open Quote"}</option>

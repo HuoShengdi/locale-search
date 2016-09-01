@@ -36,7 +36,7 @@ const SearchContainer = React.createClass({
     });
     return (
       <div id="search-container">
-        {newColumn}
+          {newColumn}
         <div className='columns-wrapper'>
           {columns}
         </div>
