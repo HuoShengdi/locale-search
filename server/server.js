@@ -2,7 +2,18 @@ const express = require('express');
 
 const app = express();
 
-require('./router')(app);
+const options = {
+  root: __dirname + "/../static/"
+};
+
+app.get("/", function(req, res) {
+  res.sendFile('index.html', options, function(err){
+    if (err){
+      console.error(err);
+      res.status(err.status).end();
+    }
+  });
+});
 
 app.use('/assets', express.static(__dirname + '/assets'));
 

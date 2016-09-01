@@ -1,5 +1,5 @@
 const Locales = {
-  "de": {
+    "de": {
       "identity": {
         "version": {
           "_number": "$Revision: 12293 $",

@@ -6,8 +6,10 @@ const App = React.createClass({
   render () {
     return (
       <div>
-        <h1>Locale Search</h1>
-        <p>Use the dropdown menu to select a property to search for</p>
+        <div id='search-header'>
+          <h1 id="search-title">Locale Search</h1>
+          <p id="info">Use the dropdown menu to select a property to search for</p>
+        </div>
         <SearchContainer />
       </div>
     );
@@ -15,6 +17,8 @@ const App = React.createClass({
 });
 
 document.addEventListener("DOMContentLoaded", ()=>{
+  const storeChange = new Event('storeChange',{'bubbles': true});
   const root = document.getElementById("content");
+  window.storeChange = storeChange;
   ReactDOM.render(<App/>, root);
 });

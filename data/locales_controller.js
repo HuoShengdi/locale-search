@@ -4,7 +4,10 @@ const keys = Object.keys(Locales);
 
 const LocalesController = {
   index(req, res){
-    res.json(keys);
+    const locales = keys.map((key)=>{
+      return {name: key};
+    });
+    res.json(locales);
   },
 
   search(req, res){
@@ -14,14 +17,14 @@ const LocalesController = {
       keys.forEach((key)=>{
         const value = Locales[key]["delimiters"][attr];
         if (value){
-          matches.push({locale: key, [attr]: value});
+          matches.push({locale: key, value: value});
         }else{
           return;
         }
       });
       res.json(matches);
     } else {
-      res.json([]);
+      res.json({});
     }
   }
 
